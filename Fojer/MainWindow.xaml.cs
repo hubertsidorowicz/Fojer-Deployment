@@ -50,7 +50,7 @@ namespace Fojer
         /// <param name="e"></param>
         private void Close(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            System.Windows.Application.Current.Shutdown();
         }
         #endregion
 
