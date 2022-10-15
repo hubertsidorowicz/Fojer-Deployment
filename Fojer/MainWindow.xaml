@@ -1,0 +1,246 @@
+﻿<Window x:Class="Fojer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fojer"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#212121"
+        BorderBrush="AliceBlue"
+        BorderThickness="0.5"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Title="MainWindow" Height="780" Width="440">
+    
+    <!-- Caption space -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="12"
+            CornerRadius="0"
+            GlassFrameThickness="0"/>
+    </WindowChrome.WindowChrome>
+    
+    <!-- Border -->
+    <Border>
+        <!-- Main Grid -->
+        <Grid>
+            <!-- Layout division -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="28*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Caption bar -->
+            <Border Background="#313131"
+                    BorderThickness="1"
+                    BorderBrush="AliceBlue"/>
+            
+            <!-- Menu Bar -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Icon -->
+                <Grid HorizontalAlignment="Left">
+                    <Image Source="Images/LogoFojer.png"
+                           Width="24"
+                           Height="24"/>
+                </Grid>
+                
+                <!-- Minimize -->
+                <Grid Grid.Column="2">
+                    <Button Click="Minimize"
+                            Style="{StaticResource MinimizeButton}"/>
+                </Grid>
+                
+                <!-- Close -->
+                <Grid Grid.Column="3">
+                    <Button Click="Close"
+                      Style="{StaticResource CloseButton}"/>
+                </Grid>
+                
+            </Grid>
+
+            <!-- Logo -->
+            <Grid Grid.Row="2"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <TextBlock Foreground="AliceBlue"
+                           FontSize="70"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center">
+                    Fojer
+                </TextBlock>
+                
+                <TextBlock Foreground="AliceBlue"
+                           FontSize="25"
+                           Margin="300,40,0,0"
+                           FontWeight="DemiBold"
+                           HorizontalAlignment="Center">
+                    Generator
+                </TextBlock>
+            </Grid>
+            
+            <!-- Options -->
+            <Grid Grid.Row="3">
+                <!-- Options Layout -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Column 1-->
+                <Border HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        CornerRadius="10"
+                        Background="#fba010"
+                        Height="50"
+                        Width="270">
+                    
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Text="Number of words:"
+                               Foreground="AliceBlue"/>
+                </Border>
+
+                <Border HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        CornerRadius="10"
+                        Background="#2774d2"
+                        Height="50"
+                        Width="270"
+                        Grid.Row="1">
+
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               Text="Number of letters in word:"
+                               Foreground="AliceBlue"/>
+                </Border>
+
+                <Border HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        CornerRadius="10"
+                        Background="#144e84"
+                        Height="35"
+                        Width="100"
+                        Margin="12"
+                        Grid.Row="2">
+
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="Bold"
+                               Text="First letter"
+                               Foreground="AliceBlue"/>
+
+                </Border>
+
+                <!-- Column 2-->
+                <TextBox x:Name="NumOfWords"
+                         Grid.Column="1"
+                         Grid.Row="0"
+                         FontSize="20"
+                         MaxLength="2"
+                         Padding="5"
+                         Margin="20"
+                         Width="40"/>
+
+                <TextBox x:Name="NumOfLetter" 
+                         Grid.Column="1" 
+                         Grid.Row="1"
+                         FontSize="20"
+                         MaxLength="2"
+                         Padding="5"
+                         Margin="20"
+                         Width="40"/>
+
+                <TextBox x:Name="lastLetter"
+                         Grid.Column="1" 
+                         Grid.Row="2"
+                         FontSize="20"
+                         MaxLength="1"
+                         Padding="8"
+                         Margin="20"                         
+                         Width="40"/>
+
+                <TextBox x:Name="firstLetter" 
+                         Grid.Column="0" 
+                         Grid.Row="2"
+                         Margin="16,20,20,20"
+                         FontSize="20"
+                         MaxLength="1"
+                         Padding="8"
+                         Width="40"/>
+
+                <Border HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        CornerRadius="10"
+                        Background="#144e84"
+                        Height="35"
+                        Width="100"
+                        Margin="228,0,0,0"
+                        Grid.Row="2"
+                        Grid.Column="0">
+
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="Bold"
+                               Text="Last letter"
+                               Foreground="AliceBlue"/>
+                </Border>
+            </Grid>
+            
+            <!-- Drawed Words -->
+            <Grid Grid.Row="4">
+
+                <!-- Words -->
+                <Border Width="430" Height="330"
+                        BorderThickness="0.5"
+                        BorderBrush="AliceBlue"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top">
+
+                    <StackPanel>
+                        <TextBox x:Name="Label1" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox x:Name="Label2" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox x:Name="Label3" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox x:Name="Label4" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox x:Name="Label5" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox x:Name="Label6" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                        <TextBox x:Name="Label7" xml:lang="pl" FontSize="25" Foreground="AliceBlue" FontWeight="Bold" Height="47.1" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}"  IsReadOnly="True" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+                
+            </Grid>
+            
+            <!-- Draw button -->
+            <Grid Grid.Row="5">
+                <Button Content="Losuj"
+                        Width="300"
+                        Height="50"
+                        Click="Draw"/>
+            </Grid>
+            
+        </Grid>
+    </Border>
+</Window>
